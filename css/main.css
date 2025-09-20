@@ -19,6 +19,7 @@ body {
   overflow: hidden;
   opacity: 0;
   animation: pageLoad 1s ease 0.5s forwards;
+  will-change: opacity, transform;
 }
 
 /* Dark overlay for better contrast */
@@ -51,6 +52,7 @@ body::before {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   animation: slideIn 0.5s ease 0.7s forwards;
   z-index: 10;
+  will-change: transform, opacity;
 }
 
 /* Slide-in animation for container */
@@ -66,6 +68,7 @@ body::before {
   margin-bottom: 15px;
   border: 3px solid rgba(255, 255, 255, 0.6);
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .profile img:hover {
@@ -106,16 +109,13 @@ h1 {
   overflow: hidden;
   z-index: 15;
   cursor: pointer;
+  will-change: transform, background, box-shadow;
 }
 
 .link-btn:hover {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
   transform: translateY(-3px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.link-btn:hover i {
-  transform: scale(1.2);
 }
 
 /* Periodic button glow animation */
@@ -183,4 +183,18 @@ h1 {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
   }
+}
+
+/* Particle styles */
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float 10s infinite linear;
+  will-change: transform;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
 }

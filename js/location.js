@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const locationBtn = document.querySelector(".link-btn");
 
   if (locationBtn) {
-    setInterval(() => {
+    const animate = () => {
       locationBtn.classList.add("pulse");
       setTimeout(() => locationBtn.classList.remove("pulse"), 800);
-    }, 3000);
+    };
+    animate();
+    setInterval(animate, 8000);
   }
 });

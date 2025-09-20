@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const callBtn = document.querySelector(".link-btn");
+  const locationBtn = document.querySelector(".link-btn");
 
-  if (callBtn) {
-    setInterval(() => {
-      callBtn.classList.add("pulse");
-      setTimeout(() => callBtn.classList.remove("pulse"), 800);
-    }, 3000); 
+  if (locationBtn) {
+    const animate = () => {
+      locationBtn.classList.add("pulse");
+      setTimeout(() => locationBtn.classList.remove("pulse"), 800);
+    };
+    animate();
+    setInterval(animate, 8000); 
   }
 });
